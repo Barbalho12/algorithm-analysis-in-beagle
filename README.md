@@ -13,5 +13,6 @@ Projeto para analise de desempenho na execução de algoritmos de ordenação, C
 ## ##
 
 ## Members ##
-> Breno Maurício de Freitas Viana
-> Felipe Barbalho Rocha
+
+1. Breno Maurício de Freitas Viana
+2. Felipe Barbalho Rocha
