@@ -4,7 +4,11 @@ Projeto para analise de desempenho na execução de algoritmos de ordenação, C
 
 ## Índice ##
 
-## A BeagleBone ##
+## A BeagleBone Black ##
+
+BeagleBoard (ou simplesmente Beagle) é um computador com uma única placa desenvolvido pela Texas Instruments. A Beagle é classificada como hardware livre sob a licença Creative Commons SharedAlike.
+
+A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui 512 Mb de memória RAM, um processador <> com um clock de 1GHz e 4GB de memória flash, e ainda vem com o Debian GNU instalado de fábrica.
 
 ### Avisos ###
 
@@ -18,7 +22,21 @@ O CABO DE FORÇA OU O USB POWER;
 5. Não modificar a senha de root do sistema (eMMC);
 6. Desconecte todos os fios da placa ao fazer uma mudança na eletrônica.
 
+## Conectando com a BeagleBone Black ##
+
+Para se conectar à BeagleBone Black é necessário conectar o cabo USB no computador e depois enviar o comando shh a seguir:
+
+	shh debian@192.168.7.2
+
+Assim, é necessário fazer o login na BeagleBone Black
+
+	A senha é: temppwd
+
+Agora já é possível acessar a BeagleBone.
+
 ## Utilizando o C++ na BeagleBone ##
+
+É possível programar no seu conputador e enviar o executável para a BeagleBone.
 
 ## Gnuplot Tutorial ##
 
