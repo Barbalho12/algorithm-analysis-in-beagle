@@ -2,21 +2,27 @@
 
 Projeto para analise de desempenho na execução de algoritmos de ordenação, Com informações comparativas (Gráficos) para execução em diferentes plataformas.
 
-This project have like objective performance analysis in the execution of sorting algorithms, using comparative informational (Charts) to run in a normal PC and in the BeagleBone.
+## Índice ##
 
-## Summary ##
-
-## The BeagleBone ##
+## A BeagleBone ##
 
 ## Gnuplot Tutorial ##
 
+O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para vários ambientes (UNIX, Windows, Macintosh, etc.). A seguir teremos alguns comandos básicos para a utilização desta ferramenta.
+
 http://www.dicas-l.com.br/arquivo/usando_gnuplot_para_gerar_bons_graficos.php
 
-
-Instalar:
+### Instalar: ###
 
 	sudo apt-get install gnuplot-x11
 
+### Execuntando ###
+
+Abra o terminal do seu sistema operacional, e escreva:
+
+	gnuplot
+
+O programa será executado no próprio terminal, e assim podemos iniciar a plotar o gráfico.
 
 Gera as 3 linhas:
 
@@ -28,7 +34,7 @@ Gera as 3 linhas:
 
 		plot "time.dat" using 1:2 title "BubbleSort" with lines, "time.dat" using 1:3 title "QuickSort" with lines, "time.dat" using 1:4 title "MergeSort" with lines
 
-salva em imagem:
+### Salvar como imagem ###
 
 	set terminal png
 	set output 'imagem.png'
@@ -38,7 +44,7 @@ salva em imagem:
 
 ## ##
 
-## Members ##
+## Membros ##
 
 * Breno Maurício de Freitas Viana
 * Felipe Barbalho Rocha
