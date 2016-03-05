@@ -40,13 +40,18 @@ O programa será executado no próprio terminal, e assim podemos iniciar a plota
 
 ### Gerando o gráfico ###
 
-1. Acessa o diretório que contém os arquivos "clock.dat" e "clock.dat" (que foram gerados pela execução dos métodos)]
+1. Acessa o diretório que contém os arquivos "clock.dat" e "time.dat" (que foram gerados pela execução dos métodos) e "grafico.gnu" (Script de execução do gnuplot)
 
 2. Comando:
 
-		plot "clock.dat" using 1:2 title "BubbleSort" with lines, "clock.dat" using 1:3 title "QuickSort" with lines, "clock.dat" using 1:4 title "MergeSort" with lines
+		gnuplot grafico.gnu
 
-		plot "time.dat" using 1:2 title "BubbleSort" with lines, "time.dat" using 1:3 title "QuickSort" with lines, "time.dat" using 1:4 title "MergeSort" with lines
+Os gráficos são gerados, e são criados duas imagens: "time.png" (gráfico da função Time) e "clock.png" (gráfico da função Clock). conforme as imagens a seguir
+
+![Time](data/time.png?raw=true "Gráfico de Time")
+
+![Clock](data/clock.png?raw=true "Gráfico de Clock")
+
 
 ### Salvar como imagem ###
 

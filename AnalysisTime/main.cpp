@@ -123,15 +123,15 @@ double ordenaVetorTime(int algorithm, int size){
     // Escolhe o algoritmo que deve ser testado
     switch (algorithm) {
         case QUICK_SORT:
-            time_init = time();
+            time_init = time(NULL);
             qs.start(vetorQuickSort, size);
             return time(NULL) - time_init;
         case BUBBLE_SORT:
-            time_init = time();
+            time_init = time(NULL);
             bs.start(vetorBubbleSort, size);
             return time(NULL) - time_init;
         case MERGE_SORT:
-            time_init = time();
+            time_init = time(NULL);
             ms.start(vetorMergeSort, size);
             return time(NULL) - time_init;
     }
