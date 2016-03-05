@@ -12,8 +12,8 @@ Projeto para analise de desempenho na execução de algoritmos de ordenação, C
 2. Desligar com o comando adequado ou usar os botões. NUNCA PUXAR
 O CABO DE FORÇA OU O USB POWER;
 3. GPIO são 3.3v tolerantes;
-	a. Input: 4mA - 6mA
-	b. Output: 8mA
+	3. Input: 4mA - 6mA
+	3. Output: 8mA
 4. ADC são 1.8v tolerantes;
 5. Não modificar a senha de root do sistema (eMMC);
 6. Desconecte todos os fios da placa ao fazer uma mudança na eletrônica.
