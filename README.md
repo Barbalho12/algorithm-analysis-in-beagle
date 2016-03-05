@@ -24,11 +24,11 @@ Abra o terminal do seu sistema operacional, e escreva:
 
 O programa será executado no próprio terminal, e assim podemos iniciar a plotar o gráfico.
 
-Gera as 3 linhas:
+### Gerando o gráfico ###
 
-	1. Acessa o diretório que contém os arquivos "clock.dat" e "clock.dat" (que foram gerados pela execução dos métodos)]
+1. Acessa o diretório que contém os arquivos "clock.dat" e "clock.dat" (que foram gerados pela execução dos métodos)]
 
-	2. Comando: 
+2. Comando:
 
 		plot "clock.dat" using 1:2 title "BubbleSort" with lines, "clock.dat" using 1:3 title "QuickSort" with lines, "clock.dat" using 1:4 title "MergeSort" with lines
 
