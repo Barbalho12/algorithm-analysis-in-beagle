@@ -8,7 +8,7 @@ Projeto para analise de desempenho na execução de algoritmos de ordenação, C
 
 ### Avisos ###
 
-1. Não posicionar a Beaglebone em superfícies metálicas;
+1. Não posicionar a BeagleBone em superfícies metálicas;
 2. Desligar com o comando adequado ou usar os botões. NUNCA PUXAR
 O CABO DE FORÇA OU O USB POWER;
 3. GPIO são 3.3v tolerantes;
@@ -17,6 +17,8 @@ O CABO DE FORÇA OU O USB POWER;
 4. ADC são 1.8v tolerantes;
 5. Não modificar a senha de root do sistema (eMMC);
 6. Desconecte todos os fios da placa ao fazer uma mudança na eletrônica.
+
+## Utilizando o C++ na BeagleBone ##
 
 ## Gnuplot Tutorial ##
 
@@ -54,9 +56,13 @@ O programa será executado no próprio terminal, e assim podemos iniciar a plota
 
 ### Utilizando o script gnuplot ###
 
-##  ##
+## Resultados ##
 
-## ##
+### Resultados no computador ###
+
+### Resultados na BeagleBone ###
+
+## Conclusão ##
 
 ## Membros ##
 
