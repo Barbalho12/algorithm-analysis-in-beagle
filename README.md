@@ -6,6 +6,18 @@ Projeto para analise de desempenho na execução de algoritmos de ordenação, C
 
 ## A BeagleBone ##
 
+### Avisos ###
+
+1. Não posicionar a Beaglebone em superfícies metálicas;
+2. Desligar com o comando adequado ou usar os botões. NUNCA PUXAR
+O CABO DE FORÇA OU O USB POWER;
+3. GPIO são 3.3v tolerantes;
+	a. Input: 4mA - 6mA
+	b. Output: 8mA
+4. ADC são 1.8v tolerantes;
+5. Não modificar a senha de root do sistema (eMMC);
+6. Desconecte todos os fios da placa ao fazer uma mudança na eletrônica.
+
 ## Gnuplot Tutorial ##
 
 O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para vários ambientes (UNIX, Windows, Macintosh, etc.). A seguir teremos alguns comandos básicos para a utilização desta ferramenta.
@@ -40,7 +52,9 @@ O programa será executado no próprio terminal, e assim podemos iniciar a plota
 	set output 'imagem.png'
 	replot
 
-## ##
+### Utilizando o script gnuplot ###
+
+##  ##
 
 ## ##
 
