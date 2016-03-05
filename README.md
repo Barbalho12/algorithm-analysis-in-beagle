@@ -1,6 +1,6 @@
-# beagleboneblack #
+# Análise de algoritmos de ordenação na BeagleBone Black #
 
-Projeto para analise de desempenho na execução de algoritmos de ordenação, Com informações comparativas (Gráficos) para execução em diferentes plataformas.
+Projeto para análise de desempenho na execução de algoritmos de ordenação, Com informações comparativas (Gráficos) para execução em diferentes plataformas.
 
 ## Índice ##
 
@@ -56,20 +56,23 @@ O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para v�
 
 		gnuplot grafico.gnu
 
-Os gráficos são gerados, e são criados duas imagens: "time.png" (gráfico da função Time) e "clock.png" (gráfico da função Clock). conforme as imagens a seguir
-
-![Time](data/time.png?raw=true "Gráfico de Time")
-
-![Clock](data/clock.png?raw=true "Gráfico de Clock")
+A seguir um exemplo de gráfico gerado utilizando o gnuplot
 
 ### Fontes ###
 
+* [BeagleBoard](https://pt.wikipedia.org/wiki/BeagleBoard)
 * [Usando Gnuplot para gerar bons gráficos](http://www.dicas-l.com.br/arquivo/usando_gnuplot_para_gerar_bons_graficos.php)
 * [Gnuplot - Manual simplificado para iniciantes](http://www.ebah.com.br/content/ABAAAgUS4AF/gnuplot-manual-simplificado-iniciantes?part=1)
 
 ## Resultados ##
 
 ### Resultados no computador ###
+
+A seguir o gráfico da função Time e da função Clock para os algortimos de ordenação:
+
+![Time](data/time.png?raw=true "Gráfico de Time")
+
+![Clock](data/clock.png?raw=true "Gráfico de Clock")
 
 ### Resultados na BeagleBone ###
 
