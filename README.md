@@ -7,16 +7,17 @@ Este projeto tem como objetivo analisar o desempenho da execução de três algo
 1. A BeagleBone Black
 	1. Avisos
 2. Conectando a BeagleBone
-3. Utilizando o C++ na BeagleBone
-4. Gnuplot Tutorial
+3. 
+4. Utilizando o C++ na BeagleBone
+5. Gnuplot Tutorial
 	4. Instalar o gnuplot
 	4. Gerando o gráfico
-5. Resultados
+6. Resultados
 	5. Resultados no computador
 	5. Resultados na BeagleBone
-6. Conclusão
-7. Membros
-8. Fontes
+7. Conclusão
+8. Membros
+9. Fontes
 
 ##1. A BeagleBone Black ##
 
@@ -24,7 +25,7 @@ BeagleBoard (ou simplesmente Beagle) é um computador com uma única placa desen
 
 A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui 512 Mb de memória RAM, um processador <> com um clock de 1GHz e 4GB de memória flash, e ainda vem com o Debian GNU instalado de fábrica.
 
-	###i. Avisos ###
+###i. Avisos ###
 
 1. Não posicionar a BeagleBone em superfícies metálicas;
 2. Desligar com o comando adequado ou usar os botões. NUNCA PUXAR
@@ -48,19 +49,44 @@ Assim, é necessário fazer o login na BeagleBone Black
 
 Agora já é possível acessar a BeagleBone.
 
-##3. Utilizando o C++ na BeagleBone ##
+##3. Requisitos para refazer a análise ##
 
-É possível programar no seu conputador e enviar o executável para a BeagleBone.
+* Use um computador com alguma distribuição Linux (Indicamos o Ubuntu).
+* Instale os seguintes pacotes para atualizar o C++
+	sudo apt-get install gcc-5-multilib g++-5-multilib
+* [Baixe](http://goo.gl/q8zaor) e instale o SDK Texas Instruments e instale usando os comandos a seguir e avance todas as opções clicando em "Next".
+	chmod +x nomedoarquivobaixado
+	./nomedoarquivobaixado
 
-##4. Gnuplot Tutorial ##
+##4. Programando para a BeagleBone Black ##
+
+É possível programar e compilar no seu computador e enviar o executável para a BeagleBone. Para fazer os testes deste projeto basta clonar esse projeto e executar os comandos.
+
+1. Computador
+
+Compile com:
+
+	make
+
+E em seguida execute com:
+
+	./analisys_time
+
+2. BeagleBone Black
+
+Basta executar o script:
+
+	connect.sh
+
+##5. Gnuplot Tutorial ##
 
 O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para vários ambientes (UNIX, Windows, Macintosh, etc.). A seguir teremos alguns comandos básicos para a utilização desta ferramenta.
 
-	###i. Instalar o gnuplot ###
+###i. Instalar o gnuplot ###
 
 	sudo apt-get install gnuplot-x11
 
-	###ii. Gerando o gráfico ###
+###ii. Gerando o gráfico ###
 
 1. Acessa o diretório que contém os arquivos "clock.dat" e "time.dat" (que foram gerados pela execução dos métodos) e "grafico.gnu" (Script de execução do gnuplot) pelo terminal:
 		
@@ -70,11 +96,15 @@ O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para v�
 
 		gnuplot grafico.gnu
 
-A seguir um exemplo de gráfico gerado utilizando o gnuplot
+A seguir um exemplo de gráfico gerado utilizando o gnuplot:
 
-##5. Resultados ##
+Para criar os gráficos basta executar o gnuplot utilizando o script gnuplot deste projeto.
 
-	###i. Resultados no computador ###
+	gnuplot performance.gnuplot
+
+##6. Resultados ##
+
+###i. Resultados no computador ###
 
 A seguir o gráfico da função Time e da função Clock para os algortimos de ordenação:
 
@@ -82,16 +112,16 @@ A seguir o gráfico da função Time e da função Clock para os algortimos de o
 
 ![Clock](data/clock.png?raw=true "Gráfico de Clock")
 
-	###ii. Resultados na BeagleBone ###
+###ii. Resultados na BeagleBone ###
 
-##6. Conclusão ##
+##7. Conclusão ##
 
-##7. Membros ##
+##8. Membros ##
 
 * Breno Maurício de Freitas Viana
 * Felipe Barbalho Rocha
 
-##8. Fontes ##
+##9. Fontes ##
 
 * [BeagleBoard](https://pt.wikipedia.org/wiki/BeagleBoard)
 * [Usando Gnuplot para gerar bons gráficos](http://www.dicas-l.com.br/arquivo/usando_gnuplot_para_gerar_bons_graficos.php)
