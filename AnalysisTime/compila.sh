@@ -2,7 +2,8 @@
 
 printf "\n\rCompilando..."
 #Alterar o no me da pasta onde salvou o ti-process-sdk
-source /home/barbalho/ti-processor-sdk-linux-am335x-evm-02.00.01.07/linux-devkit/environment-setup
+source /opt/ti-processor-sdk-linux-am335x-evm-02.00.01.07/linux-devkit/environment-setup
+
 
 rm moc_*
 rm ui_*
