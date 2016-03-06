@@ -5,7 +5,7 @@ Este projeto tem como objetivo analisar o desempenho da execução de três algo
 ## Índice ##
 
 1. A BeagleBone Black
-1. Avisos
+	1. Avisos
 2. Conectando a BeagleBone
 3.
 4.
@@ -16,7 +16,7 @@ BeagleBoard (ou simplesmente Beagle) é um computador com uma única placa desen
 
 A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui 512 Mb de memória RAM, um processador <> com um clock de 1GHz e 4GB de memória flash, e ainda vem com o Debian GNU instalado de fábrica.
 
-###1. Avisos ###
+###i. Avisos ###
 
 1. Não posicionar a BeagleBone em superfícies metálicas;
 2. Desligar com o comando adequado ou usar os botões. NUNCA PUXAR
