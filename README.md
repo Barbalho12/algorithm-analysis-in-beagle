@@ -144,13 +144,19 @@ Após isso os dados da beagle pode ser analisado no diretório "Dados-beagle", s
 
 Nessa seção, temos os resultados dos testes dos algoritmos BubbleSort, QuickSort e MergeSort.
 
-###i. Resultados no computador ###
+###i. Resultados no computador (Processador Dual Core) ###
 
 ![Time](Dados-pc/grafico_time.png?raw=true "Gráfico de Time")
 
 ![Clock](Dados-pc/grafico_clock.png?raw=true "Gráfico de Clock")
 
-###ii. Resultados na BeagleBone ###
+###i. Resultados no computador (Processador i7) ###
+
+![Time](Dados-pc-i7/grafico_time.png?raw=true "Gráfico de Time")
+
+![Clock](Dados-pc-i7/grafico_clock.png?raw=true "Gráfico de Clock")
+
+###iii. Resultados na BeagleBone ###
 
 ![Time](Dados-beagle/grafico_time.png?raw=true "Gráfico de Time")
 
