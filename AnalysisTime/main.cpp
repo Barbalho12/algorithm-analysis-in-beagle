@@ -17,6 +17,7 @@
 #include "bubblesort.h"
 #include "quicksort.h"
 #include "mergesort.h"
+#include <cmath>
 
 // Algoritmos de busca a serem testados
 const int BUBBLE_SORT = 1;
@@ -32,8 +33,15 @@ const int RAND_RANGE_MAX = 100000;
 
 // Tamanhos do vetor
 const int SIZE_VETOR_INIT = 100;
-const int SIZE_VETOR_MAX = 4000;
+const int SIZE_VETOR_MAX = 2000;
 const int INCREASE_SIZE_VETOR = 100;
+
+#define TIME_BUBBLE_PATH "dados-coletados/time_bubble.dat"
+#define TIME_QUICK_PATH "dados-coletados/time_quick.dat"
+#define TIME_MERGE_PATH "dados-coletados/time_merge.dat"
+#define CLOCK_BUBBLE_PATH "dados-coletados/clock_bubble.dat"
+#define CLOCK_QUICK_PATH "dados-coletados/clock_quick.dat"
+#define CLOCK_MERGE_PATH "dados-coletados/clock_merge.dat"
 
 using namespace std;
 
@@ -74,26 +82,39 @@ void imprimeVetor(string nomeVetor, int *vetor, int n) {
     cout << endl;
 }
 
+
+
 /**
  * Apaga os arquivos da execução anterior, caso existam.
  */
 void clearFiles() {
-    ofstream init;
-    // Abre o arquivo
-    init.open("time.dat", ios_base::in);
-    // Verifica se o arquivo existe
-    if (!init) {
-        // Fecha o arquivo
-        init.close();
-        remove("time.dat");
-    }
-    // Abre o arquivo
-    init.open("clock.dat", ios_base::in);
-    // Verifica se o arquivo existe
-    if (!init) {
-        // Fecha o arquivo
-        init.close();
-        remove("clock.dat");
+
+    const string files[] = {TIME_BUBBLE_PATH, TIME_QUICK_PATH, TIME_MERGE_PATH,
+                    CLOCK_BUBBLE_PATH, CLOCK_QUICK_PATH, CLOCK_MERGE_PATH};
+
+    for (int i = 0; i < 6; i++){
+        ofstream init;
+        // Abre o arquivo
+        init.open(files[i], ios_base::in);
+        // Verifica se o arquivo existe
+        if (init) {
+            // Fecha o arquivo
+            init.close();
+            if( files[i] == TIME_BUBBLE_PATH){
+                remove(TIME_BUBBLE_PATH);
+            }else if( files[i] == TIME_QUICK_PATH){
+                remove(TIME_QUICK_PATH);
+            }else if( files[i] == TIME_MERGE_PATH){
+                remove(TIME_MERGE_PATH);
+            }else if( files[i] == CLOCK_BUBBLE_PATH){
+                remove(CLOCK_BUBBLE_PATH);
+            }else if( files[i] == CLOCK_QUICK_PATH){
+                remove(CLOCK_QUICK_PATH);
+            }else if( files[i] == CLOCK_MERGE_PATH){
+                remove(CLOCK_MERGE_PATH);
+            }
+
+        }
     }
 }
 
@@ -101,10 +122,23 @@ void clearFiles() {
 /**
  * Sava o arquivo.
  */
-void saveInFile(int sizeVetor, double pBubble, double pQuick, double pMerge, string path){
+/*void saveInFile(int sizeVetor, double pBubble, double pQuick, double pMerge, string path){
     ofstream out;
     out.open(path, ios::app);
     out << sizeVetor << " " << pBubble << " " << pQuick << " " << pMerge << endl;
+    out.close();
+}*/
+void saveInFile(string content, string path){
+    ofstream out;
+    out.open(path, ios::app); 
+    out << content << endl;
+    out.close();
+}
+
+void saveInFile(int sizeVetor, double media ,double dp_inf, double dp_sup, string path){
+    ofstream out;
+    out.open(path, ios::app);
+    out << sizeVetor << " " << media << " " << dp_inf << " " << dp_sup << endl;
     out.close();
 }
 
@@ -113,7 +147,7 @@ void saveInFile(int sizeVetor, double pBubble, double pQuick, double pMerge, str
  * Calcula o tempo de ordenação com a função Clock.
  */
 double ordenaVetorTime(int algorithm, int size){
-    clock_t time_init;
+    time_t time_init;
 
     // Algoritmos de busca
     QuickSort qs = QuickSort();
@@ -123,7 +157,7 @@ double ordenaVetorTime(int algorithm, int size){
     // Escolhe o algoritmo que deve ser testado
     switch (algorithm) {
         case QUICK_SORT:
-            time_init = time(NULL);
+            time(&time_init);
             qs.start(vetorQuickSort, size);
             return time(NULL) - time_init;
         case BUBBLE_SORT:
@@ -134,6 +168,9 @@ double ordenaVetorTime(int algorithm, int size){
             time_init = time(NULL);
             ms.start(vetorMergeSort, size);
             return time(NULL) - time_init;
+        default:
+            cout << "ERROR" << endl;
+        break;
     }
     return -1;
 }
@@ -170,9 +207,9 @@ double ordenaVetorClock(int algorithm, int size) {
 /**
  * Calcula a média do vetor.
  */
-double mediaVetor(int *vetor, int size){
+double mediaVetor(double *vetor, int size){
     // Média
-    double media = 0;
+    double media = 0.0;
     // Verifica se o tamanho é válido, senão retorna -1
     if (size <= 0) {
         return -1;
@@ -181,7 +218,17 @@ double mediaVetor(int *vetor, int size){
     for (int i = 0; i < size; i++) {
         media += vetor[i];
     }
-    return media/size;
+    return media/(size*1.0);
+}
+
+double desvioPadrao(double *vetor, int sizeVetor, double media){
+    double soma = 0;
+    double variancia = 0;
+    for(int i = 0; i < sizeVetor; i++){
+        soma += abs((vetor[i] - media) * (vetor[i] - media));
+    }
+    variancia = soma / (1.0*sizeVetor);
+    return sqrt(variancia);
 }
 
 /**
@@ -190,9 +237,9 @@ double mediaVetor(int *vetor, int size){
 void performanceAnalysis(int sizeVetor, int function){
 
     // 10 amostras para cada ponto
-    int pontoBubble [10];
-    int pontoQuick  [10];
-    int pontoMerge  [10];
+    double pontoBubble [10];
+    double pontoQuick  [10];
+    double pontoMerge  [10];
 
     // Executa em cada uma das sementes
     for(int i = 0; i < 10; i++){
@@ -217,6 +264,8 @@ void performanceAnalysis(int sizeVetor, int function){
             durationBubble = ordenaVetorClock(BUBBLE_SORT, sizeVetor);
             durationQuick = ordenaVetorClock(QUICK_SORT, sizeVetor);
             durationMerge = ordenaVetorClock(MERGE_SORT, sizeVetor);
+        }else{
+            cout << "ERROR" << endl;
         }
 
         // Armazena para cada amostra de 10
@@ -230,18 +279,40 @@ void performanceAnalysis(int sizeVetor, int function){
     double pointQuickSort = mediaVetor(pontoQuick, 10);
     double pointMergeSort = mediaVetor(pontoMerge, 10);
 
+    double dpBS = desvioPadrao(pontoBubble, 10, pointBubbleSort);
+    double dpQS = desvioPadrao(pontoQuick, 10, pointQuickSort);
+    double dpMS = desvioPadrao(pontoMerge, 10, pointMergeSort);
+
     // Testa qual é o tipo de function especificado para salvarno arquivo correto
+    //if (function == TIME_FUNCTION) {
+        // Essa é a mesma sequencia em que será salva no arquivo
+        //saveInFile(sizeVetor, pointBubbleSort, pointQuickSort, pointMergeSort, "time.dat");
+    //} else if (function == CLOCK_FUNCTION) {
+        // Converte em segundos: ((float)pointBubbleSort)/CLOCKS_PER_SEC
+       // double b = ((float)pointBubbleSort)/CLOCKS_PER_SEC;
+        //double q = ((float)pointQuickSort)/CLOCKS_PER_SEC;
+        //double m = ((float)pointMergeSort)/CLOCKS_PER_SEC;
+        //saveInFile(sizeVetor, b, q, m, "clock.dat");
+    //}
+
+
     if (function == TIME_FUNCTION) {
         // Essa é a mesma sequencia em que será salva no arquivo
-        saveInFile(sizeVetor, pointBubbleSort, pointQuickSort, pointMergeSort, "time.dat");
+        saveInFile(sizeVetor,  pointBubbleSort, pointBubbleSort - dpBS, pointBubbleSort + dpBS, TIME_BUBBLE_PATH);
+        saveInFile(sizeVetor,  pointQuickSort, pointQuickSort - dpQS,  pointQuickSort + dpQS, TIME_QUICK_PATH);
+        saveInFile(sizeVetor,  pointMergeSort, pointMergeSort - dpMS, pointMergeSort + dpMS, TIME_MERGE_PATH);
     } else if (function == CLOCK_FUNCTION) {
         // Converte em segundos: ((float)pointBubbleSort)/CLOCKS_PER_SEC
         double b = ((float)pointBubbleSort)/CLOCKS_PER_SEC;
         double q = ((float)pointQuickSort)/CLOCKS_PER_SEC;
         double m = ((float)pointMergeSort)/CLOCKS_PER_SEC;
-        saveInFile(sizeVetor, b, q, m, "clock.dat");
+        double dpb = ((float)dpBS)/CLOCKS_PER_SEC;
+        double dpq = ((float)dpQS)/CLOCKS_PER_SEC;
+        double dpm = ((float)dpMS)/CLOCKS_PER_SEC;
+        saveInFile(sizeVetor, b, b - dpb, b+dpb, CLOCK_BUBBLE_PATH);
+        saveInFile(sizeVetor, q, q - dpq, q+dpq, CLOCK_QUICK_PATH);
+        saveInFile(sizeVetor, m, m - dpm, m+dpm, CLOCK_MERGE_PATH);
     }
-
 }
 
 /**
@@ -264,6 +335,65 @@ int main(int argc, char *argv[]) {
         // Feedback do processo
         cout << i <<"  -  " << clock() - clock_init << endl;
     }
+
+    string script_gnuplot_dp = "set encoding iso_8859_1 \n"
+                            "set grid \n"
+                            "set key top left \n"
+                            "set title 'Análise de desempenho com a função Clock' \n"
+                            "set xlabel 'Tamanho do vetor' \n"
+                            "set ylabel 'Tempo (segundos)' \n"
+                            "# BubbleSort \n"
+                            "plot 'clock_bubble.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                            "rep 'clock_bubble.dat' using 1:2:3:4 t 'BubbleSort' with yerrorbars ls 1 lt 8 \n"
+                            "# QuickSort \n"
+                            "rep 'clock_quick.dat' using 1:2 notitle with linespoints ls 2 lt 6 \n"
+                            "rep 'clock_quick.dat' using 1:2:3:4 t 'QuickSort' with yerrorbars ls 2 lt 6 \n"
+                            "# Mergesort \n"
+                            "rep 'clock_merge.dat' using 1:2 notitle with linespoints ls 3 lt 5 \n"
+                            "rep 'clock_merge.dat' using 1:2:3:4 t 'Mergesort' with yerrorbars ls 3 lt 5 \n"
+                            "set terminal png \n"
+                            "set output 'grafico_clock.png' \n"
+                            "replot \n"
+                            "\n"
+                            "\n"
+                            "set encoding iso_8859_1 \n"
+                            "set grid \n"
+                            "set key top left \n"
+                            "set title 'Análise de desempenho com a função Time'\n"
+                            "set xlabel 'Tamanho do vetor' \n"
+                            "set ylabel 'Tempo (segundos)' \n"
+                            "# BubbleSort \n"
+                            "plot 'time_bubble.dat' using 1:2 notitle with linespoints ls 1 lt 8 \n"
+                            "rep 'time_bubble.dat' using 1:2:3:4 t 'BubbleSort' with yerrorbars ls 1 lt 8 \n"
+                            "# QuickSort \n"
+                            "rep 'time_quick.dat' using 1:2 notitle with linespoints ls 2 lt 6 \n"
+                            "rep 'time_quick.dat' using 1:2:3:4 t 'QuickSort' with yerrorbars ls 2 lt 6 \n"
+                            "# Mergesort \n"
+                            "rep 'time_merge.dat' using 1:2 notitle with linespoints ls 3 lt 5 \n"
+                            "rep 'time_merge.dat' using 1:2:3:4 t 'Mergesort' with yerrorbars ls 3 lt 5 \n"
+                            "set terminal png \n"
+                            "set output 'grafico_time.png' \n"
+                            "replot \n" ;
+
+    string script_gnuplot_simple = "set title 'Desempenho de Algoritmos de Ordenação usando Clock'; \n"
+                            "set key box right bottom outside title 'Algoritmos de Ordenação'; \n"
+                            "set xlabel 'Tamanho do Vetor'; set ylabel 'Tempo Decorrido (Segundos)'; \n"
+                            "plot 'clock_bubble.dat' using 1:2 title 'BubbleSort' with lines, 'clock_quick.dat' using 1:2 title 'QuickSort' with lines, 'clock_merge.dat' using 1:2 title 'MergeSort' with lines; \n"
+                            "set terminal png size 1000,680; \n"
+                            "set output 'clock.png'; \n"
+                            "replot  \n"
+                            "\n"
+                            "set title 'Desempenho de Algoritmos de Ordenação usando Time'; \n"
+                            "set key box right bottom outside title 'Algoritmos de Ordenação'; \n"
+                            "set xlabel 'Tamanho do Vetor'; set ylabel 'Tempo Decorrido (Segundos)'; \n"
+                            "plot 'time_bubble.dat' using 1:2 title 'BubbleSort' with lines, 'time_quick.dat' using 1:2 title 'QuickSort' with lines, 'time_merge.dat' using 1:2 title 'MergeSort' with lines; \n"
+                            "set terminal png size 1000,680; \n"
+                            "set output 'time.png'; \n"
+                            "replot \n";
+
+    saveInFile(script_gnuplot_dp, "dados-coletados/script_gnuplot.gnu");
+
+    system("cd dados-coletados && gnuplot script_gnuplot.gnu");
 
     return 0;
 }
