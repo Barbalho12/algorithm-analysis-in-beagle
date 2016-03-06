@@ -7,8 +7,16 @@ Este projeto tem como objetivo analisar o desempenho da execução de três algo
 1. A BeagleBone Black
 	1. Avisos
 2. Conectando a BeagleBone
-3.
-4.
+3. Utilizando o C++ na BeagleBone
+4. Gnuplot Tutorial
+	4. Instalar o gnuplot
+	4. Gerando o gráfico
+5. Resultados
+	5. Resultados no computador
+	5. Resultados na BeagleBone
+6. Conclusão
+7. Membros
+8. Fontes
 
 ##1. A BeagleBone Black ##
 
@@ -44,15 +52,15 @@ Agora já é possível acessar a BeagleBone.
 
 É possível programar no seu conputador e enviar o executável para a BeagleBone.
 
-## Gnuplot Tutorial ##
+##4. Gnuplot Tutorial ##
 
 O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para vários ambientes (UNIX, Windows, Macintosh, etc.). A seguir teremos alguns comandos básicos para a utilização desta ferramenta.
 
-### Instalar: ###
+###i. Instalar o gnuplot ###
 
 	sudo apt-get install gnuplot-x11
 
-### Gerando o gráfico ###
+###ii. Gerando o gráfico ###
 
 1. Acessa o diretório que contém os arquivos "clock.dat" e "time.dat" (que foram gerados pela execução dos métodos) e "grafico.gnu" (Script de execução do gnuplot) pelo terminal:
 		
@@ -64,15 +72,9 @@ O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para v�
 
 A seguir um exemplo de gráfico gerado utilizando o gnuplot
 
-### Fontes ###
+##5. Resultados ##
 
-* [BeagleBoard](https://pt.wikipedia.org/wiki/BeagleBoard)
-* [Usando Gnuplot para gerar bons gráficos](http://www.dicas-l.com.br/arquivo/usando_gnuplot_para_gerar_bons_graficos.php)
-* [Gnuplot - Manual simplificado para iniciantes](http://www.ebah.com.br/content/ABAAAgUS4AF/gnuplot-manual-simplificado-iniciantes?part=1)
-
-## Resultados ##
-
-### Resultados no computador ###
+###i. Resultados no computador ###
 
 A seguir o gráfico da função Time e da função Clock para os algortimos de ordenação:
 
@@ -80,11 +82,18 @@ A seguir o gráfico da função Time e da função Clock para os algortimos de o
 
 ![Clock](data/clock.png?raw=true "Gráfico de Clock")
 
-### Resultados na BeagleBone ###
+###ii. Resultados na BeagleBone ###
 
-## Conclusão ##
+##6. Conclusão ##
 
-## Membros ##
+##7. Membros ##
 
 * Breno Maurício de Freitas Viana
 * Felipe Barbalho Rocha
+
+##8. Fontes ##
+
+* [BeagleBoard](https://pt.wikipedia.org/wiki/BeagleBoard)
+* [Usando Gnuplot para gerar bons gráficos](http://www.dicas-l.com.br/arquivo/usando_gnuplot_para_gerar_bons_graficos.php)
+* [Gnuplot - Manual simplificado para iniciantes](http://www.ebah.com.br/content/ABAAAgUS4AF/gnuplot-manual-simplificado-iniciantes?part=1)
+
