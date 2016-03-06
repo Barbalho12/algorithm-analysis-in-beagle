@@ -134,7 +134,17 @@ MergeSort:
 
 ##7. Conclusão ##
 
-Concluímos assim que a arquitetura do hardware influência muito no desempenho pudemos perceber isso pelos gráficos mostrados nos resultados da análise.
+Concluímos assim que a arquitetura do hardware influência muito no desempenho, pudemos perceber isso pelos gráficos mostrados nos resultados da análise. 
+
+(..Falar mais coisas..)
+
+Depois desses testes como podemos responder qual a função que realiza melhor análise de desempenho dos algoritmos de ordenação? 
+
+Como podemos notar a função Clock permite uma análise mais detahadas dos dados, visto a ordem pequena que uma unidade de clock representa, porém, quando analismaos os dados com mais precisão, podemos atingir facilmente o limite representativo da unidade numérica, e a consequência disso é a ocorrencia de Overflow procando uma incoerência nos dados finais. Já a função Time é muito útil para representar grandes valores, já que sua unidade representativa são em segundos, dessa forma ela analisaria de forma "magnífica" a execução de algoritmos com anos de duração, porém, apesar de existir um limite de crescimento assim como a função Clock, o grande problema da função Time é na analise de desempenho de algoritmos em curtos intervalos de tempo, pois não é possivel mensurar grandesas como millisegundos ou nanosegundos. 
+
+Portanto, a melhor resposta para a pergunta acima depende do que será analisado: algoritmos que duram um nanosegundo, ou complexos algoritmos de ordenação executado em vetores com mais de 100.000 elementos. A função Clock é a mais útil para analises precisas, porém não se aplicada em análises de grande intervalo de tempo, e a função Time é mais útil em algoritmos muito complexos e de execução demorada, porém é bem menos precisa que a função Clock.    
+
+(..Falar mais coisas sobre como cada função age..)
 
 ##8. Membros ##
 
