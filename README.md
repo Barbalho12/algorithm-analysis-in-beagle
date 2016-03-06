@@ -15,7 +15,6 @@ Este projeto tem como objetivo analisar o desempenho da execução de três algo
 6. Executando na BeagleBone Black
 	6. Computador
 	6. BeagleBone Black
-
 7. Resultados
 	7. Resultados no computador
 	7. Resultados na BeagleBone
@@ -35,9 +34,7 @@ A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui
 2. Ligar a beagle Bone: segurando o botão de "user" sem soltar até que os leds comecem a piscar, conecte o cabo usb, e espere que os leds fiquem piscando.
 
 2. Desligar com o comando adequado ou usar os botões. NUNCA PUXAR O CABO DE FORÇA OU O USB POWER;
-
 	sudo shutdown -h now
-
 3. GPIO são 3.3v tolerantes;
 	3. Input: 4mA - 6mA
 	3. Output: 8mA
@@ -95,6 +92,14 @@ Para criar os gráficos basta executar o gnuplot utilizando o script gnuplot des
 	gnuplot performance.gnuplot
 	
 ##4.Executando no Computador##
+
+Na raiz do projeto entre no diretório "dist-64bits" ou "dist-32bits" Conforme seu sistema operacional e execute o programa:
+	
+	cd dist-64bits
+	
+	./AnalysisTime
+
+O resultado da execução estará no diretório criado pelo programa "dados-coletados" junto com os gráficos e scripts do gnuplot para personalização
 
 ##4.Executando na BeagleBone Black ##
 
