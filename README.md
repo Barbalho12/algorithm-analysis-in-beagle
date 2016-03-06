@@ -148,10 +148,12 @@ Nessa seção, temos os resultados dos testes dos algoritmos BubbleSort, QuickSo
 ###i. Resultados no computador (Processador Pentium) ###
 
 Configurações:
-- Intel Pentium 3GHz
+- Intel Pentium 3GHz x2
 - 2 Gb de memória RAM
 - 64 bits
 - Ubuntu
+
+O programa executou sozinho no computador.
 
 ![Time](Dados-pc/grafico_time.png?raw=true "Gráfico de Time")
 
@@ -160,16 +162,20 @@ Configurações:
 ###ii. Resultados no notebook (Processador i7) ###
 
 Configurações:
-- Intel Core i7 2.40GHz
+- Intel Core i7 2.40GHz x8
 - 8 Gb de memória RAM
 - 64 bits
 - Ubuntu
+
+O programa foi executado paralelamente com outros programas (Spotify, Chrome, Atom, Gerenciador de Arquivos e o Visualizador de PDF).
 
 ![Time](Dados-pc-i7/grafico_time.png?raw=true "Gráfico de Time")
 
 ![Clock](Dados-pc-i7/grafico_clock.png?raw=true "Gráfico de Clock")
 
 ###iii. Resultados na BeagleBone ###
+
+O programa executou sozinho no computador.
 
 ![Time](Dados-beagle/grafico_time.png?raw=true "Gráfico de Time")
 
@@ -179,7 +185,7 @@ Configurações:
 
 Concluímos assim que a arquitetura do hardware influência muito no desempenho, pudemos perceber isso pelos gráficos mostrados nos resultados da análise. 
 
-(..Falar mais coisas..)
+Percebemos que há uma grande diferença nos gráficos entre a execução nos computadores e a BeagleBone, mas há semelhanças em relação ao crescimento dos gráficos, estas correspondem a complexidade dos algoritmos.
 
 Depois desses testes como podemos responder qual a função que realiza melhor análise de desempenho dos algoritmos de ordenação? 
 
