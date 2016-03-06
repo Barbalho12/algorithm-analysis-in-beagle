@@ -24,7 +24,7 @@ BeagleBoard (ou simplesmente Beagle) é um computador com uma única placa desen
 
 A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui 512 Mb de memória RAM, um processador <> com um clock de 1GHz e 4GB de memória flash, e ainda vem com o Debian GNU instalado de fábrica.
 
-###i. Avisos ###
+	###i. Avisos ###
 
 1. Não posicionar a BeagleBone em superfícies metálicas;
 2. Desligar com o comando adequado ou usar os botões. NUNCA PUXAR
@@ -56,11 +56,11 @@ Agora já é possível acessar a BeagleBone.
 
 O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para vários ambientes (UNIX, Windows, Macintosh, etc.). A seguir teremos alguns comandos básicos para a utilização desta ferramenta.
 
-###i. Instalar o gnuplot ###
+	###i. Instalar o gnuplot ###
 
 	sudo apt-get install gnuplot-x11
 
-###ii. Gerando o gráfico ###
+	###ii. Gerando o gráfico ###
 
 1. Acessa o diretório que contém os arquivos "clock.dat" e "time.dat" (que foram gerados pela execução dos métodos) e "grafico.gnu" (Script de execução do gnuplot) pelo terminal:
 		
@@ -74,7 +74,7 @@ A seguir um exemplo de gráfico gerado utilizando o gnuplot
 
 ##5. Resultados ##
 
-###i. Resultados no computador ###
+	###i. Resultados no computador ###
 
 A seguir o gráfico da função Time e da função Clock para os algortimos de ordenação:
 
@@ -82,7 +82,7 @@ A seguir o gráfico da função Time e da função Clock para os algortimos de o
 
 ![Clock](data/clock.png?raw=true "Gráfico de Clock")
 
-###ii. Resultados na BeagleBone ###
+	###ii. Resultados na BeagleBone ###
 
 ##6. Conclusão ##
 
