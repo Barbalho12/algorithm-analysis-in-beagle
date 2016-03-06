@@ -57,11 +57,11 @@ Agora já é possível acessar a BeagleBone.
 
 * Use um computador com alguma distribuição Linux (Indicamos o Ubuntu).
 * Instale os seguintes pacotes para atualizar o C++
-* 
+
 	sudo apt-get install gcc-5-multilib g++-5-multilib
 
 * [Baixe](http://goo.gl/q8zaor) e instale o SDK Texas Instruments e instale usando os comandos a seguir e avance todas as opções clicando em "Next".
-* 
+
 	chmod +x nomedoarquivobaixado
 
 	./nomedoarquivobaixado
