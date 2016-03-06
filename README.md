@@ -116,25 +116,15 @@ Nessa seção, temos os resultados dos testes dos algoritmos BubbleSort, QuickSo
 
 ###i. Resultados no computador ###
 
-A seguir o gráfico da função Time e da função Clock para os algortimos de ordenação:
+![Time](Dados-pc/grafico_time.png?raw=true "Gráfico de Time")
 
-BubbleSort:
-
-QuickSort:
-
-MergeSort:
-
-![Time](data/time.png?raw=true "Gráfico de Time")
-
-![Clock](data/clock.png?raw=true "Gráfico de Clock")
+![Clock](Dados-pc/grafico_clock.png?raw=true "Gráfico de Clock")
 
 ###ii. Resultados na BeagleBone ###
 
-BubbleSort:
+![Time](Dados-beagle/grafico_time.png?raw=true "Gráfico de Time")
 
-QuickSort:
-
-MergeSort:
+![Clock](Dados-beagle/grafico_clock.png?raw=true "Gráfico de Clock")
 
 ##7. Conclusão ##
 
