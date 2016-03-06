@@ -32,9 +32,9 @@ const int CLOCK_FUNCTION = 2;
 const int RAND_RANGE_MAX = 100000;
 
 // Tamanhos do vetor
-const int SIZE_VETOR_INIT = 100;
-const int SIZE_VETOR_MAX = 2000;
-const int INCREASE_SIZE_VETOR = 100;
+const int SIZE_VETOR_INIT = 5000;
+const int SIZE_VETOR_MAX = 100000;
+const int INCREASE_SIZE_VETOR = 5000;
 
 #define TIME_BUBBLE_PATH "dados-coletados/time_bubble.dat"
 #define TIME_QUICK_PATH "dados-coletados/time_quick.dat"
