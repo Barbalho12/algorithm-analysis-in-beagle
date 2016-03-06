@@ -16,7 +16,8 @@ Este projeto tem como objetivo analisar o desempenho da execução de três algo
 	6. Computador
 	6. BeagleBone Black
 7. Resultados
-	7. Resultados no computador
+	7. Resultados no computador (Processador Dual Core)
+	7. Resultados no notebook (Processador i7)
 	7. Resultados na BeagleBone
 8. Conclusão
 9. Membros
@@ -144,13 +145,25 @@ Após isso os dados da beagle pode ser analisado no diretório "Dados-beagle", s
 
 Nessa seção, temos os resultados dos testes dos algoritmos BubbleSort, QuickSort e MergeSort.
 
-###i. Resultados no computador (Processador Dual Core) ###
+###i. Resultados no computador (Processador Pentium) ###
+
+Configurações:
+- Intel Pentium 3GHz
+- 2 Gb de memória RAM
+- 64 bits
+- Ubuntu
 
 ![Time](Dados-pc/grafico_time.png?raw=true "Gráfico de Time")
 
 ![Clock](Dados-pc/grafico_clock.png?raw=true "Gráfico de Clock")
 
-###i. Resultados no computador (Processador i7) ###
+###ii. Resultados no notebook (Processador i7) ###
+
+Configurações:
+- Intel Core i7 2.40GHz
+- 8 Gb de memória RAM
+- 64 bits
+- Ubuntu
 
 ![Time](Dados-pc-i7/grafico_time.png?raw=true "Gráfico de Time")
 
