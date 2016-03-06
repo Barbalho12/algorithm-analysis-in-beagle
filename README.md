@@ -1,16 +1,22 @@
 # Análise de algoritmos de ordenação na BeagleBone Black #
 
-Projeto para análise de desempenho na execução de algoritmos de ordenação, Com informações comparativas (Gráficos) para execução em diferentes plataformas.
+Este projeto tem como objetivo analisar o desempenho da execução de três algoritmos de ordenação. Com informações comparativas (Gráficos) para execução na BeagleBone Black e em um outro computador.
 
 ## Índice ##
 
-## A BeagleBone Black ##
+1. A BeagleBone Black
+1. Avisos
+2. Conectando a BeagleBone
+3.
+4.
+
+##1. A BeagleBone Black ##
 
 BeagleBoard (ou simplesmente Beagle) é um computador com uma única placa desenvolvido pela Texas Instruments. A Beagle é classificada como hardware livre sob a licença Creative Commons SharedAlike.
 
 A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui 512 Mb de memória RAM, um processador <> com um clock de 1GHz e 4GB de memória flash, e ainda vem com o Debian GNU instalado de fábrica.
 
-### Avisos ###
+###1. Avisos ###
 
 1. Não posicionar a BeagleBone em superfícies metálicas;
 2. Desligar com o comando adequado ou usar os botões. NUNCA PUXAR
@@ -22,7 +28,7 @@ O CABO DE FORÇA OU O USB POWER;
 5. Não modificar a senha de root do sistema (eMMC);
 6. Desconecte todos os fios da placa ao fazer uma mudança na eletrônica.
 
-## Conectando com a BeagleBone Black ##
+##2. Conectando com a BeagleBone Black ##
 
 Para se conectar à BeagleBone Black é necessário conectar o cabo USB no computador e depois enviar o comando shh a seguir:
 
@@ -34,7 +40,7 @@ Assim, é necessário fazer o login na BeagleBone Black
 
 Agora já é possível acessar a BeagleBone.
 
-## Utilizando o C++ na BeagleBone ##
+##3. Utilizando o C++ na BeagleBone ##
 
 É possível programar no seu conputador e enviar o executável para a BeagleBone.
 
