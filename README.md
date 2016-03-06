@@ -1,20 +1,22 @@
 # Análise de algoritmos de ordenação na BeagleBone Black #
 
-Este projeto tem como objetivo analisar o desempenho da execução de três algoritmos de ordenação. Com informações comparativas (Gráficos) para execução na BeagleBone Black e em um outro computador.
+Este projeto tem como objetivo analisar o desempenho da execução de três algoritmos de ordenação são eles o BubbleSort, QuickSort e MergeSort. Com informações comparativas utilizando gráficos sobre a execução dos algoritmos na BeagleBone Black e em um outro computador.
 
 ## Índice ##
 
 1. A BeagleBone Black
 	1. Avisos
 2. Conectando a BeagleBone
-3. 
-4. Utilizando o C++ na BeagleBone
+3. Requisitos para fazer a análise
+4. Programando para a BeagleBone Black
+	4. Computador
+	4. BeagleBone Black
 5. Gnuplot Tutorial
-	4. Instalar o gnuplot
-	4. Gerando o gráfico
+	5. Instalar o gnuplot
+	5. Gerando o gráfico
 6. Resultados
-	5. Resultados no computador
-	5. Resultados na BeagleBone
+	6. Resultados no computador
+	6. Resultados na BeagleBone
 7. Conclusão
 8. Membros
 9. Fontes
@@ -23,7 +25,7 @@ Este projeto tem como objetivo analisar o desempenho da execução de três algo
 
 BeagleBoard (ou simplesmente Beagle) é um computador com uma única placa desenvolvido pela Texas Instruments. A Beagle é classificada como hardware livre sob a licença Creative Commons SharedAlike.
 
-A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui 512 Mb de memória RAM, um processador <> com um clock de 1GHz e 4GB de memória flash, e ainda vem com o Debian GNU instalado de fábrica.
+A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui 512 Mb de memória RAM, um processador Cortex-A8 com um clock de 1GHz e 4GB de memória flash, e ainda vem com o Debian GNU instalado de fábrica.
 
 ###i. Avisos ###
 
@@ -37,19 +39,21 @@ O CABO DE FORÇA OU O USB POWER;
 5. Não modificar a senha de root do sistema (eMMC);
 6. Desconecte todos os fios da placa ao fazer uma mudança na eletrônica.
 
+Informação retirada do slide do professor Ivanovitch.
+
 ##2. Conectando com a BeagleBone Black ##
 
 Para se conectar à BeagleBone Black é necessário conectar o cabo USB no computador e depois enviar o comando shh a seguir:
 
 	shh debian@192.168.7.2
 
-Assim, é necessário fazer o login na BeagleBone Black
+Assim, é necessário fazer o login na BeagleBone Black.
 
 	A senha é: temppwd
 
 Agora já é possível acessar a BeagleBone.
 
-##3. Requisitos para refazer a análise ##
+##3. Requisitos para fazer a análise ##
 
 * Use um computador com alguma distribuição Linux (Indicamos o Ubuntu).
 * Instale os seguintes pacotes para atualizar o C++
@@ -62,7 +66,7 @@ Agora já é possível acessar a BeagleBone.
 
 É possível programar e compilar no seu computador e enviar o executável para a BeagleBone. Para fazer os testes deste projeto basta clonar esse projeto e executar os comandos.
 
-1. Computador
+###i. Computador ###
 
 Compile com:
 
@@ -72,7 +76,7 @@ E em seguida execute com:
 
 	./analisys_time
 
-2. BeagleBone Black
+###ii. BeagleBone Black ###
 
 Basta executar o script:
 
@@ -89,9 +93,9 @@ O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para v�
 ###ii. Gerando o gráfico ###
 
 1. Acessa o diretório que contém os arquivos "clock.dat" e "time.dat" (que foram gerados pela execução dos métodos) e "grafico.gnu" (Script de execução do gnuplot) pelo terminal:
-		
+
 		cd data
-	
+
 2. Digita o omando no Terminal:
 
 		gnuplot grafico.gnu
@@ -104,9 +108,17 @@ Para criar os gráficos basta executar o gnuplot utilizando o script gnuplot des
 
 ##6. Resultados ##
 
+Nessa seção, temos os resultados dos testes dos algoritmos BubbleSort, QuickSort e MergeSort.
+
 ###i. Resultados no computador ###
 
 A seguir o gráfico da função Time e da função Clock para os algortimos de ordenação:
+
+BubbleSort:
+
+QuickSort:
+
+MergeSort:
 
 ![Time](data/time.png?raw=true "Gráfico de Time")
 
@@ -114,7 +126,15 @@ A seguir o gráfico da função Time e da função Clock para os algortimos de o
 
 ###ii. Resultados na BeagleBone ###
 
+BubbleSort:
+
+QuickSort:
+
+MergeSort:
+
 ##7. Conclusão ##
+
+Concluímos assim que a arquitetura do hardware influência muito no desempenho pudemos perceber isso pelos gráficos mostrados nos resultados da análise.
 
 ##8. Membros ##
 
