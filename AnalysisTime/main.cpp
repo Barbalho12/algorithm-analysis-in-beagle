@@ -319,6 +319,7 @@ void performanceAnalysis(int sizeVetor, int function){
  * Método principal.
  */
 int main(int argc, char *argv[]) {
+	system("mkdir dados-coletados");
     // Apaga arquivos da execução anterior, caso existam
     clearFiles();
     clock_t clock_init; //pode apagar, serve só pra ter um feedback em quanto executa
