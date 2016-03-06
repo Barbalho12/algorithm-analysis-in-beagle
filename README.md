@@ -8,18 +8,20 @@ Este projeto tem como objetivo analisar o desempenho da execução de três algo
 	1. Avisos
 2. Conectando a BeagleBone
 3. Requisitos para fazer a análise
-4. Programando para a BeagleBone Black
-	4. Computador
-	4. BeagleBone Black
-5. Gnuplot Tutorial
-	5. Instalar o gnuplot
-	5. Gerando o gráfico
-6. Resultados
-	6. Resultados no computador
-	6. Resultados na BeagleBone
-7. Conclusão
-8. Membros
-9. Fontes
+4. Gnuplot Tutorial
+	4. Instalar o gnuplot
+	4. Gerando o gráfico
+5. Executando no Computador
+6. Executando na BeagleBone Black
+	6. Computador
+	6. BeagleBone Black
+
+7. Resultados
+	7. Resultados no computador
+	7. Resultados na BeagleBone
+8. Conclusão
+9. Membros
+10. Fontes
 
 ##1. A BeagleBone Black ##
 
@@ -30,8 +32,12 @@ A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui
 ###i. Avisos ###
 
 1. Não posicionar a BeagleBone em superfícies metálicas;
-2. Desligar com o comando adequado ou usar os botões. NUNCA PUXAR
-O CABO DE FORÇA OU O USB POWER;
+2. Ligar a beagle Bone: segurando o botão de "user" sem soltar até que os leds comecem a piscar, conecte o cabo usb, e espere que os leds fiquem piscando.
+
+2. Desligar com o comando adequado ou usar os botões. NUNCA PUXAR O CABO DE FORÇA OU O USB POWER;
+
+	sudo shutdown -h now
+
 3. GPIO são 3.3v tolerantes;
 	3. Input: 4mA - 6mA
 	3. Output: 8mA
@@ -58,34 +64,14 @@ Agora já é possível acessar a BeagleBone.
 * Use um computador com alguma distribuição Linux (Indicamos o Ubuntu).
 * Instale os seguintes pacotes para atualizar o C++.
 
-		sudo apt-get install gcc-5-multilib g++-5-multilib
+	sudo apt-get install gcc-5-multilib g++-5-multilib
 
 * [Baixe](http://goo.gl/q8zaor) e instale o SDK Texas Instruments e instale usando os comandos a seguir e avance todas as opções clicando em "Next".
 
-		chmod +x nomedoarquivobaixado
+	chmod +x nomedoarquivobaixado
 
-		./nomedoarquivobaixado
-
-##4. Programando para a BeagleBone Black ##
-
-É possível programar e compilar no seu computador e enviar o executável para a BeagleBone. Para fazer os testes deste projeto basta clonar esse projeto e executar os comandos.
-
-###i. Computador ###
-
-Compile com:
-
-	make
-
-E em seguida execute com:
-
-	./analisys_time
-
-###ii. BeagleBone Black ###
-
-Basta executar o script:
-
-	connect.sh
-
+	./nomedoarquivobaixado
+		
 ##5. Gnuplot Tutorial ##
 
 O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para vários ambientes (UNIX, Windows, Macintosh, etc.). A seguir teremos alguns comandos básicos para a utilização desta ferramenta.
@@ -98,15 +84,54 @@ O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para v�
 
 1. Acessa o diretório que contém os arquivos "clock.dat" e "time.dat" (que foram gerados pela execução dos métodos) e "grafico.gnu" (Script de execução do gnuplot) pelo terminal:
 
-		cd data
+	cd data
 
 2. Digita o omando no Terminal:
 
-		gnuplot grafico.gnu
-
-A seguir um exemplo de gráfico gerado utilizando o gnuplot:
+	gnuplot grafico.gnu
 
 Para criar os gráficos basta executar o gnuplot utilizando o script gnuplot deste projeto.
+
+	gnuplot performance.gnuplot
+	
+##4.Executando no Computador##
+
+##4.Executando na BeagleBone Black ##
+
+É possível programar e compilar no seu computador e enviar o executável para a BeagleBone. Para fazer os testes deste projeto basta clonar esse projeto e executar os comandos.
+
+###i. Computador ###
+
+Entre na pasta de código fonte "AnalysisTime" abra o arquivo "compila.sh" e veja se o diretório "source" é de fato o endereço do "SDK Texas Instruments" instalado conforme foi especificado em seções anteriores. Exemplo:
+
+	source /opt/ti-processor-sdk-linux-am335x-evm-02.00.01.07/linux-devkit/environment-setup
+	
+Verifique se o nome do executável é o mesmo especificado no "AnalysisTime.pro" como a seguir:
+
+	sshpass -p 'temppwd' scp AnalysisTime debian@192.168.7.2:~
+	
+Agora acesse a BeagleBone por ssh (mais informações podem ser visualisadas em seções anteriores):
+
+	ssh debian@192.168.7.2
+
+###ii. BeagleBone Black ###
+
+já conectado a Beagle (é preferivel ter o gnuplot instalado na beagle para facilitar o processo, isso pode ser feito na seção de instação do gnuplot) execute o programa:
+
+	./AnalysisTime
+	
+Após a execução, é criado um diretório "dados-coletados" com arquivos contendo as informações a serem plotadas em gráfico. e se o gnuplot já foi instalado antes, já se tem as imagens com gráficos. volte ao seu pc:
+
+	exit
+
+###i. Computador ###
+
+Na raiz do projeto execute o script "get-results-beagle-scp.sh", coloque a senha conforme solicitar, se não houver permissão forneça com:
+
+	chmod +x get-results-beagle-scp.sh
+	./get-results-beagle-scp.sh
+	
+Após isso os dados da beagle pode ser analisado no diretório "Dados-beagle", se não houver imagens com os gráficos, gere com:
 
 	gnuplot performance.gnuplot
 
