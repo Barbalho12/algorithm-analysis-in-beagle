@@ -200,6 +200,9 @@ Portanto, a melhor resposta para a pergunta acima depende do que será analisado
 
 ##9. Fontes ##
 
+* BubbleSort - Disponibilizado pelo professor Ivanovitch
+* [QuickSort](https://pt.wikipedia.org/wiki/Quicksort)
+* [MergerSort](https://pt.wikipedia.org/wiki/Merge_sort)
 * [BeagleBoard](https://pt.wikipedia.org/wiki/BeagleBoard)
 * [Usando Gnuplot para gerar bons gráficos](http://www.dicas-l.com.br/arquivo/usando_gnuplot_para_gerar_bons_graficos.php)
 * [Gnuplot - Manual simplificado para iniciantes](http://www.ebah.com.br/content/ABAAAgUS4AF/gnuplot-manual-simplificado-iniciantes?part=1)
