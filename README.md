@@ -13,8 +13,9 @@ This project aims to analyze the execution performance of three sorting algorith
 >	* Generating the statistical graph
 5. Running on the Computer
 6. Running on BeagleBone Black
->	* Computer
->	* BeagleBone Black
+> 	* Before (Computer)
+> 	* Running (BeagleBone Black)
+> 	* After (Computer)
 7. Results
 >	* Computer 1 (Pentium Dual Core Processor)
 >	* Computer 2 (i7 Octa Core Processor)
@@ -25,9 +26,9 @@ This project aims to analyze the execution performance of three sorting algorith
 
 ## 1. The BeagleBone Black
 
-BeagleBoard (ou simplesmente Beagle) é um computador com uma única placa desenvolvido pela Texas Instruments. A Beagle é classificada como hardware livre sob a licença Creative Commons SharedAlike.
+BeagleBoard (or simply Beagle) is a single board computer developed by Texas Instruments. The Beagle is classified as free hardware under the **Creative Commons SharedAlike** license.
 
-A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui 512 Mb de memória RAM, um processador Cortex-A8 com um clock de 1GHz e 4GB de memória flash, e ainda vem com o Debian GNU instalado de fábrica.
+The BeagleBone Black (BBB) is one of the BeagleBoard versions, this version has 512 Mb of RAM, a Cortex-A8 processor with a clock of 1GHz and 4GB of flash memory, and still comes with Debian GNU installed at the factory.
 
 ### i. Avisos 
 
@@ -45,7 +46,7 @@ A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui
 
 Informação retirada do slide do professor Ivanovitch.
 
-##2. Conectando com a BeagleBone Black ##
+## 2. Connecting to BeagleBone
 
 Para se conectar à BeagleBone Black é necessário conectar o cabo USB no computador e depois enviar o comando shh a seguir:
 
@@ -57,7 +58,7 @@ Assim, é necessário fazer o login na BeagleBone Black.
 
 Agora já é possível acessar a BeagleBone.
 
-##3. Requisitos para fazer a análise ##
+## 3. Requirements for doing the analysis
 
 * Use um computador com alguma distribuição Linux (Indicamos o Ubuntu).
 * Instale os seguintes pacotes para atualizar o C++.
@@ -70,21 +71,21 @@ Agora já é possível acessar a BeagleBone.
 
 		./nomedoarquivobaixado
 		
-##5. Gnuplot Tutorial ##
+## 5. Gnuplot Tutorial
 
 O gnuplot é um software que falicita a criação de gráficos (2D e 3D) para vários ambientes (UNIX, Windows, Macintosh, etc.). A seguir teremos alguns comandos básicos para a utilização desta ferramenta.
 
-###i. Instalar o gnuplot ###
+### i. Install gnuplot
 
 	sudo apt-get install gnuplot-x11
 
-###ii. Gerando o gráfico ###
+### ii. Generating the statistical graph
 
 1. Acessa o diretório que contém os arquivos "clock.dat" e "time.dat" (que foram gerados pela execução dos métodos) e "grafico.gnu" (Script de execução do gnuplot) pelo terminal:
 
 	cd data
 
-2. Digita o omando no Terminal:
+2. Digita o comando no Terminal:
 
 	gnuplot grafico.gnu
 
@@ -92,7 +93,7 @@ Para criar os gráficos basta executar o gnuplot utilizando o script gnuplot des
 
 	gnuplot performance.gnuplot
 	
-##4.Executando no Computador##
+## 5. Running on the Computer
 
 Na raiz do projeto entre no diretório "dist-64bits" ou "dist-32bits" Conforme seu sistema operacional e execute o programa:
 	
@@ -102,11 +103,11 @@ Na raiz do projeto entre no diretório "dist-64bits" ou "dist-32bits" Conforme s
 
 O resultado da execução estará no diretório criado pelo programa "dados-coletados" junto com os gráficos e scripts do gnuplot para personalização
 
-##4.Executando na BeagleBone Black ##
+## 6. Running on BeagleBone Black
 
 É possível programar e compilar no seu computador e enviar o executável para a BeagleBone. Para fazer os testes deste projeto basta clonar esse projeto e executar os comandos.
 
-###i. Computador ###
+### i. Before (Computer)
 
 Entre na pasta de código fonte "AnalysisTime" abra o arquivo "compila.sh" e veja se o diretório "source" é de fato o endereço do "SDK Texas Instruments" instalado conforme foi especificado em seções anteriores. Exemplo:
 
@@ -120,7 +121,7 @@ Agora acesse a BeagleBone por ssh (mais informações podem ser visualisadas em 
 
 	ssh debian@192.168.7.2
 
-###ii. BeagleBone Black ###
+### ii. Running (BeagleBone Black)
 
 já conectado a Beagle (é preferivel ter o gnuplot instalado na beagle para facilitar o processo, isso pode ser feito na seção de instação do gnuplot) execute o programa:
 
@@ -130,7 +131,7 @@ Após a execução, é criado um diretório "dados-coletados" com arquivos conte
 
 	exit
 
-###i. Computador ###
+### iii. After (Computer)
 
 Na raiz do projeto execute o script "get-results-beagle-scp.sh", coloque a senha conforme solicitar, se não houver permissão forneça com:
 
@@ -141,11 +142,11 @@ Após isso os dados da beagle pode ser analisado no diretório "Dados-beagle", s
 
 	gnuplot performance.gnuplot
 
-##6. Resultados ##
+## 7. Results 
 
 Nessa seção, temos os resultados dos testes dos algoritmos BubbleSort, QuickSort e MergeSort.
 
-###i. Resultados no computador (Processador Pentium) ###
+### i. Computer 1 (Pentium Dual Core Processor)
 
 Configurações:
 - Intel Pentium 3GHz x2
@@ -159,7 +160,7 @@ O programa executou sozinho no computador.
 
 ![Clock](Dados-pc/grafico_clock.png?raw=true "Gráfico de Clock")
 
-###ii. Resultados no notebook (Processador i7) ###
+### ii. Computer 2 (i7 Octa Core Processor)
 
 Configurações:
 - Intel Core i7 2.40GHz x8
@@ -173,7 +174,7 @@ O programa foi executado paralelamente com outros programas (Spotify, Chrome, At
 
 ![Clock](Dados-pc-i7/grafico_clock.png?raw=true "Gráfico de Clock")
 
-###iii. Resultados na BeagleBone ###
+### iii. BeagleBone Black (Single Core)
 
 O programa executou sozinho no computador.
 
@@ -181,24 +182,24 @@ O programa executou sozinho no computador.
 
 ![Clock](Dados-beagle/grafico_clock.png?raw=true "Gráfico de Clock")
 
-##7. Conclusão ##
+## 8. Conclusion
 
-Concluímos assim que a arquitetura do hardware influência muito no desempenho, pudemos perceber isso pelos gráficos mostrados nos resultados da análise. 
+We conclude as soon as the hardware architecture greatly influences performance, we can see this by the graphs shown in the results of the analysis.
 
-Percebemos que há uma grande diferença nos gráficos entre a execução nos computadores e a BeagleBone, mas há semelhanças em relação ao crescimento dos gráficos, estas correspondem a complexidade dos algoritmos.
+We noticed that there is a big difference in the graphs between the execution in the computers and the BeagleBone, but there are similarities in relation to the growth of the graphs, these correspond to the complexity of the algorithms.
 
-Depois desses testes como podemos responder qual a função que realiza melhor análise de desempenho dos algoritmos de ordenação? 
+After these tests how can we answer which function performs the best performance analysis of sorting algorithms?
 
-Como podemos notar a função Clock permite uma análise mais detahadas dos dados, visto a ordem pequena que uma unidade de clock representa, porém, quando analismaos os dados com mais precisão, podemos atingir facilmente o limite representativo da unidade numérica, e a consequência disso é a ocorrencia de Overflow procando uma incoerência nos dados finais. Já a função Time é muito útil para representar grandes valores, já que sua unidade representativa são em segundos, dessa forma ela analisaria de forma "magnífica" a execução de algoritmos com anos de duração, porém, apesar de existir um limite de crescimento assim como a função Clock, o grande problema da função Time é na analise de desempenho de algoritmos em curtos intervalos de tempo, pois não é possivel mensurar grandesas como millisegundos ou nanosegundos. 
+As we can see, the Clock function allows a more detailed analysis of the data, since the small order that a clock unit represents, however, when we analyze the data with more precision, we can easily reach the representative limit of the numerical unit, and the consequence is the occurrence of Overflow causing an inconsistency in the final data. The Time function is very useful to represent large values, since its representative unit is in seconds, in that way it would analyze in a "magnificent" way the execution of algorithms with years of duration, although there is a growth limit as well the Clock function, the big problem of the Time function is in the performance analysis of algorithms in short time intervals, since it is not possible to measure large ones such as milliseconds or nanoseconds.
 
-Portanto, a melhor resposta para a pergunta acima depende do que será analisado: algoritmos que duram um nanosegundo, ou complexos algoritmos de ordenação executado em vetores com mais de 100.000 elementos. A função Clock é a mais útil para analises precisas, porém não se aplicada em análises de grande intervalo de tempo, e a função Time é mais útil em algoritmos muito complexos e de execução demorada, porém é bem menos precisa que a função Clock.    
+Therefore, the best answer to the above question depends on what will be analyzed: algorithms that last a nanosecond, or complex ordering algorithms run on vectors with more than 100,000 elements. The Clock function is most useful for accurate analysis, but not for large-time analysis, and the Time function is most useful in very complex and time-consuming algorithms, but it is much less accurate than the Clock function.
 
-##8. Membros ##
+## 9. Members 
 
 * Breno Maurício de Freitas Viana
 * Felipe Barbalho Rocha
 
-##9. Fontes ##
+## 9. References
 
 * BubbleSort - Disponibilizado pelo professor Ivanovitch
 * [QuickSort](https://pt.wikipedia.org/wiki/Quicksort)
