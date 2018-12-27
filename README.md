@@ -1,35 +1,35 @@
-# Análise de algoritmos de ordenação na BeagleBone Black #
+# Analysis of sorting algorithms in BeagleBone Black
 
-Este projeto tem como objetivo analisar o desempenho da execução de três algoritmos de ordenação são eles o BubbleSort, QuickSort e MergeSort. Com informações comparativas utilizando gráficos sobre a execução dos algoritmos na BeagleBone Black e em um outro computador.
+This project aims to analyze the execution performance of three sorting algorithms are BubbleSort, QuickSort and MergeSort. With comparative information using graphs on running the algorithms on BeagleBone Black and on another computer.
 
-## Índice ##
+# Menu
 
-1. A BeagleBone Black
-	1. Avisos
-2. Conectando a BeagleBone
-3. Requisitos para fazer a análise
+1. The BeagleBone Black
+>	* Warnings
+2. Connecting to BeagleBone
+3. Requirements for doing the analysis
 4. Gnuplot Tutorial
-	4. Instalar o gnuplot
-	4. Gerando o gráfico
-5. Executando no Computador
-6. Executando na BeagleBone Black
-	6. Computador
-	6. BeagleBone Black
-7. Resultados
-	7. Resultados no computador (Processador Dual Core)
-	7. Resultados no notebook (Processador i7)
-	7. Resultados na BeagleBone
-8. Conclusão
-9. Membros
-10. Fontes
+>	* Install gnuplot
+>	* Generating the statistical graph
+5. Running on the Computer
+6. Running on BeagleBone Black
+>	* Computer
+>	* BeagleBone Black
+7. Results
+>	* Computer 1 (Pentium Dual Core Processor)
+>	* Computer 2 (i7 Octa Core Processor)
+>	* BeagleBone Black (Single Core)
+8. Conclusion
+9. Members
+10. References
 
-##1. A BeagleBone Black ##
+## 1. The BeagleBone Black
 
 BeagleBoard (ou simplesmente Beagle) é um computador com uma única placa desenvolvido pela Texas Instruments. A Beagle é classificada como hardware livre sob a licença Creative Commons SharedAlike.
 
 A BeagleBone Black (BBB) é uma das versões da BeagleBoard, esta versão possui 512 Mb de memória RAM, um processador Cortex-A8 com um clock de 1GHz e 4GB de memória flash, e ainda vem com o Debian GNU instalado de fábrica.
 
-###i. Avisos ###
+### i. Avisos 
 
 1. Não posicionar a BeagleBone em superfícies metálicas;
 2. Ligar a beagle Bone: segurando o botão de "user" sem soltar até que os leds comecem a piscar, conecte o cabo usb, e espere que os leds fiquem piscando.
